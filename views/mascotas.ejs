@@ -1,0 +1,35 @@
+<%- include('template/header', {tituloWeb: 'Pagina de mascota'}) %>
+
+<div class="container">
+
+    <div class="d-grid gap-2">
+        <a href="/mascotas/crear" class="btn btn-success my-4">Crear nueva mascota</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (arrayMascotas.length > 0) { %>
+            <% arrayMascotas.forEach(mascota => { %>
+            <tr>
+                <th scope="row"><%= mascota.id %></th>
+                <td><%= mascota.nombre %></td>
+                <td><%= mascota.descripcion%></td>
+                <td>
+                    <button class="btn btn-danger">DELETE</button>
+                    <a href="mascotas/<%= mascota.id %>" class="btn btn-secondary">EDITAR</a>
+                </td>
+            </tr>
+            <% }) %>
+            <% } %>
+        </tbody>
+    </table>
+
+</div>
+<%- include('template/footer')%>
